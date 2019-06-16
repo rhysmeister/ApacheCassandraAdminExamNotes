@@ -34,6 +34,7 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Removing Nodes
 * Bootstrapping
 * Replacing a Downed Node
+* Size Tiered Compaction
 * Leveled Compaction
 * Time Window Compaction
 * Repair
