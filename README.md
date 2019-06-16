@@ -47,6 +47,10 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Repair
 * Nodesync
 * sstablesplit
+  * Splits SSTable files into multiple SSTables of a maximum designated size.
+  * Do not execute when Cassandra is running.
+  * We might sometimes wish to split a very large sstable to ensure compaction occurs on it.
+  * sstablesplit -m 500 /path/to/massive/sstable-Data.db
 * Backup
 * JVM
 * Garbage Collection
