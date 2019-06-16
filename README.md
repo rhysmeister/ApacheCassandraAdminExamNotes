@@ -35,15 +35,15 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Bootstrapping
 * Replacing a Downed Node
 * Size Tiered Compaction
-** Default compaction strategy.
-** Good for insert heavy and general workloads.
+  * Default compaction strategy.
+  * Good for insert heavy and general workloads.
 * Leveled Compaction
-** Groups sstables into levels of a fixed size limit.
-** Each level is 10 times larger than the previous.
-** Best for read heavy workloads or where there are more updates than inserts.
+  * Groups sstables into levels of a fixed size limit.
+  * Each level is 10 times larger than the previous.
+  * Best for read heavy workloads or where there are more updates than inserts.
 * Time Window Compaction
-** Designed to work on time-series data.
-** One sstable for each time window.
+  * Designed to work on time-series data.
+  * One sstable for each time window.
 * Repair
 * Nodesync
 * sstablesplit
