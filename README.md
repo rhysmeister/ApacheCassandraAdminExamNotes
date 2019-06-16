@@ -4,12 +4,19 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 
 ### DS201: DataStax Enterprise 6 Foundations of Apache Cassandra - https://academy.datastax.com/resources/ds201-datastax-enterprise-6-foundations-of-apache-cassandra ###
 * Partitions
+  * Group rows physically together on disk based on the partition key.
+  * The partitioner hashes the partition key values to create a partition token.
+  * https://www.datastax.com/dev/blog/the-most-important-thing-to-know-in-cassandra-data-modeling-the-primary-key
 * Clustering Columns
+  * Clustering columns order data within a partition. https://docs.datastax.com/en/dse/5.1/cql/cql/cql_using/whereClustering.html
+  * https://www.bmc.com/blogs/cassandra-clustering-columns-partition-composite-key/
 * Application Connectivity
 * Node
 * Ring
 * Peer to Peer
 * Vnodes
+  * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archDataDistributeVnodesUsing.html
+  * https://www.youtube.com/watch?v=G4SMNU1aOJg
 * Gossip
 * Snitch
 * Replication
