@@ -28,11 +28,25 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * cassandra-stress
 * top
 * dstat
+  * Versatile tool for generating system resource statistics.
+  * https://linux.die.net/man/1/dstat
+  * dstat -am
 * nodetool
+  * A command line interface for managing a cluster.
+  * http://cassandra.apache.org/doc/latest/tools/nodetool/nodetool.html
+  * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/tools/toolsNodetool.html
+  * https://www.youtube.com/watch?v=0qr9z0lsbuk
+  * https://www.youtube.com/watch?v=Sz7OiUWgs5U
 * JVM
 * Adding Nodes
+  * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/operations/opsAddNodeToCluster.html
 * Removing Nodes
+  * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/operations/opsRemoveNode.html
 * Bootstrapping
+  * http://cassandra.apache.org/doc/latest/operating/topo_changes.html
+  * https://thelastpickle.com/blog/2017/05/23/auto-bootstrapping-part1.html
+  * https://thelastpickle.com/blog/2018/08/02/Re-Bootstrapping-Without-Bootstrapping.html
+  * https://de.slideshare.net/ArunitGupta1/boot-strapping-in-cassandra
 * Replacing a Downed Node
 * Size Tiered Compaction
   * Default compaction strategy.
@@ -56,6 +70,8 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Garbage Collection
 * Heap Dump
 * Kernel Tuning
+  * https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/config/configRecommendedSettings.html
+  * https://tobert.github.io/pages/als-cassandra-21-tuning-guide.html
 * Hardware
 * Cloud
 * Security
