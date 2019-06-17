@@ -6,18 +6,29 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Partitions
   * Group rows physically together on disk based on the partition key.
   * The partitioner hashes the partition key values to create a partition token.
+  * Used to place data on the ring.
   * https://www.datastax.com/dev/blog/the-most-important-thing-to-know-in-cassandra-data-modeling-the-primary-key
+  * https://docs.datastax.com/en/archived/cql/3.3/cql/cql_using/useCompositePartitionKeyConcept.html
 * Clustering Columns
+  * Non-partition section of the PK.
   * Clustering columns order data within a partition. https://docs.datastax.com/en/dse/5.1/cql/cql/cql_using/whereClustering.html
+  * Equality or range queries can be performed on clustering columns.
+  * Default ascending order.
+  * https://docs.datastax.com/en/dse/6.7/cql/cql/cql_using/useCompoundPrimaryKeyConcept.html
   * https://www.bmc.com/blogs/cassandra-clustering-columns-partition-composite-key/
 * Application Connectivity
+  * Drivers - https://docs.datastax.com/en/driver-matrix/doc/driver_matrix/common/driverMatrix.html
 * Node
+  * 6K-12K transactions/seconds/core
+  * 2-4TB
 * Ring
 * Peer to Peer
 * Vnodes
   * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archDataDistributeVnodesUsing.html
   * https://www.youtube.com/watch?v=G4SMNU1aOJg
 * Gossip
+  * https://www.edureka.co/blog/gossip-protocol-in-cassandra/
+  * https://www.linkedin.com/pulse/gossip-protocol-inside-apache-cassandra-soham-saha/
 * Snitch
 * Replication
 * Consistency
@@ -82,3 +93,13 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Hardware
 * Cloud
 * Security
+
+### Quiz Trivia ###
+
+* What is the node that handles a request called? Coordinator node.
+* Write Path Order Commitlog > MemTable > SSTable.
+* Cassandra does not do any writes or deletes in place.
+* SSTables are immutable.
+* Compaction is the progress of taking small SSTables and merges them into bigger ones.
+* Last writes wins - based on Timestamps.
+*
