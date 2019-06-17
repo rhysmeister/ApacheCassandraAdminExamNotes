@@ -22,7 +22,10 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
   * 6K-12K transactions/seconds/core
   * 2-4TB
 * Ring
+  * Notes can have four statuses in the ring UP / DOWN / JOINING / LEAVING.
+  * https://academy.datastax.com/units/2017-ring-dse-foundations-apache-cassandra?resource=ds201-datastax-enterprise-6-foundations-of-apache-cassandra
 * Peer to Peer
+  * No one is a leader, no one is a follower. All nodes are equal.
 * Vnodes
   * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archDataDistributeVnodesUsing.html
   * https://www.youtube.com/watch?v=G4SMNU1aOJg
