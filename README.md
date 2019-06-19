@@ -27,6 +27,9 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Peer to Peer
   * No one is a leader, no one is a follower. All nodes are equal.
 * Vnodes
+  * Vnodes help keep a cluster balanced as new Apache Cassandra nodes are introduced to the cluster and old nodes are decommissoned, and also automate token range assignment. With vnodes, each node is responsible for several smaller slices of the ring, instead of just one large slice.
+  * default number of vnodes = 128.
+  * Can be configured in the num_tokens parameter in cassandra.yaml.
   * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archDataDistributeVnodesUsing.html
   * https://www.youtube.com/watch?v=G4SMNU1aOJg
 * Gossip
