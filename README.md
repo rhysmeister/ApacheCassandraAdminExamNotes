@@ -33,12 +33,25 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
   * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archDataDistributeVnodesUsing.html
   * https://www.youtube.com/watch?v=G4SMNU1aOJg
 * Gossip
+  * A Gossip round is initiated by a Node every second.
+  * Picks 1-3 Nodes to gossip with.
+  * Can gossip with any Node but favours (slightly) seeds and downed Nodes.
   * https://www.edureka.co/blog/gossip-protocol-in-cassandra/
   * https://www.linkedin.com/pulse/gossip-protocol-inside-apache-cassandra-soham-saha/
 * Snitch
+  * GossipingPropertyFileSnitch is the default. Configured in cassandra-rackdc.properties.
 * Replication
 * Consistency
+  * ANY - Store a hint.
+  * ONE, TWO, THREE - Closest to Coordinator.
+  * QUORUM - Majority vote.
+  * LOCAL_ONE - Limit to local DC.
+  * LOCAL_QUORUM Majority vote in local DC.
+  * EACH_QUORUM - Majority vote in each DC.
+  * ALL - All nodes must participate.
 * Hinted Handoff
+  * Default 3 hours.
+  * Enabled by default. 
 * Read Repair
 * Node Sync
 * Write Path
