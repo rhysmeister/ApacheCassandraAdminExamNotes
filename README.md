@@ -51,12 +51,26 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
   * ALL - All nodes must participate.
 * Hinted Handoff
   * Default 3 hours.
-  * Enabled by default. 
+  * Enabled by default.
 * Read Repair
+  * Always occurs when consistency level = ALL.
+  * read_repair_chance - Sets the probability which Cassandra will perform a read repair with a consistency level less than ALL.
 * Node Sync
+   DataStax Enterprise 6 feature.
 * Write Path
 * Read Path
+  * Bloom filter > Key Cache > Partition Summary > Partition Index > SSTable.
+  * Partition Summary - In memory data structure storing byte offsets into the partition index.
+  * The key cache - Stores the byte offset of the most recently accessed records.
+  * Bloom Filter - A Bloom filter is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970, that is used to test whether an element is a member of a set. False positive matches are possible, but false negatives are not – in other words, a query returns either "possibly in set" or "definitely not in set".
+  * http://cassandra.apache.org/doc/latest/operating/bloom_filters.html
+  * https://en.wikipedia.org/wiki/Bloom_filter
 * Compaction
+  * Process used to remove stale data from existing sstables.
+  * Compaction Strategies
+    * SizeTiered Compaction - Default. Triggers when multiple sstables of a similar sire are present. Good for high writes.
+    * Leveled Compaction - Groups sstables into levels. Each level has a fixed size limit which is 10 times larger than the previous level. Good to read heavy use-cases.
+    * TimeWindow Compaction - Create time windowed buckets of sstables that are compacted using the Size Tiered compaction strategy.
 * Advanced Performance
 
 ### DS210: DataStax Enterprise 6 Operations with Apache Cassandra -https://academy.datastax.com/resources/ds210-datastax-enterprise-6-operations-with-apache-cassandra ###
