@@ -74,14 +74,31 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * Advanced Performance
 
 ### DS210: DataStax Enterprise 6 Operations with Apache Cassandra -https://academy.datastax.com/resources/ds210-datastax-enterprise-6-operations-with-apache-cassandra ###
-* Clusters
+* Configuring Clusters
+  * cassandra.yaml - Main configuration file.
+  * cluster_name - Default "Test Cluster".
+  * listen_address - Default localhost.
+  * native_transport_address - Default localhost.
+  * seeds - Default "127.0.0.1".
+  * endpoint_snitch - Default SimpleSnitch.
+  * initial_token - Default 128 (or is it 256?? Some confusion https://datastaxacademy.slack.com/archives/C4ZQ1EWNM/p1560929813009900).
+  * commitlog_directory - Default /var/lib/cassandra/commitlog.
+  * data_file_directories - Default /var/lib/cassandra/data.
+  * hints_direcory - Default /var/lib/cassandra/hints.
+  * saved_caches_directory - Default /var/lib/cassandra/saved_caches.
 * Cluster Sizing
+  * Throughput.
+  * Growth Rate.
+  * Latency.
 * cassandra-stress
+  * Benchmarking tool used to determine schema performance, scaling and determine production capacity.
+  * Configured through a yaml file.
+  * Example here - https://github.com/justinbreese/dse-cassandra-stress/blob/master/stress.yaml
 * top
 * dstat
   * Versatile tool for generating system resource statistics.
   * https://linux.die.net/man/1/dstat
-  * dstat -am
+  * dstat -am - All default stats and memory.
 * nodetool
   * A command line interface for managing a cluster.
   * http://cassandra.apache.org/doc/latest/tools/nodetool/nodetool.html
@@ -90,26 +107,43 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
   * https://www.youtube.com/watch?v=Sz7OiUWgs5U
 * JVM
 * Adding Nodes
+  * Add a single node at a time.
   * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/operations/opsAddNodeToCluster.html
 * Removing Nodes
+  * nodetool decommission - Causes a live node to decommission itself, streaming its data to the next node on the ring to replicate appropriately.
+  * nodetool removenode - Shows the status of current node removal; forces completion of pending removal, or removes identified node. Use when the node is down and nodetool decommission cannot be used. If the cluster does not use vnodes, adjust the tokens before running this command.
+  * nodetool assassinate - Just make the node go away. Doesn't redistribute any data.
   * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/operations/opsRemoveNode.html
 * Bootstrapping
+  * The process of a new node joining a cluster.
   * http://cassandra.apache.org/doc/latest/operating/topo_changes.html
   * https://thelastpickle.com/blog/2017/05/23/auto-bootstrapping-part1.html
   * https://thelastpickle.com/blog/2018/08/02/Re-Bootstrapping-Without-Bootstrapping.html
   * https://de.slideshare.net/ArunitGupta1/boot-strapping-in-cassandra
 * Replacing a Downed Node
+  * Replace better than remove and add.
+  * In jvm.options add replace_address or (better) replace_address_first_boot.
+  * Monitor with nodetool netstats.
 * Size Tiered Compaction
   * Default compaction strategy.
   * Good for insert heavy and general workloads.
+  * Groups similarly sized tables together.
+  * Tiers with less than min_threshold (four) sstables are not considered for compaction.
 * Leveled Compaction
   * Groups sstables into levels of a fixed size limit.
   * Each level is 10 times larger than the previous.
   * Best for read heavy workloads or where there are more updates than inserts.
+  * Very IO intensive.
+  * Compacts more frequently than size tiered.
 * Time Window Compaction
   * Designed to work on time-series data.
   * One sstable for each time window.
+  * size tiered within a time window.
 * Repair
+  * Synchronizing replicas.
+  * Occurs when detected by reads, randomly with non_quorum reads (read_repair_chance) or manually with nodetool repair.
+  * Repairs should be run if a node is down for a long time.
+  * Regular repair should also be run to ensure the integrity of cluster data.
 * Nodesync
 * sstablesplit
   * Splits SSTable files into multiple SSTables of a maximum designated size.
