@@ -145,19 +145,56 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
   * Repairs should be run if a node is down for a long time.
   * Regular repair should also be run to ensure the integrity of cluster data.
 * Nodesync
+  * DSE only feature.
+  * Background, low-overhead repair like feature.
 * sstablesplit
   * Splits SSTable files into multiple SSTables of a maximum designated size.
   * Do not execute when Cassandra is running.
   * We might sometimes wish to split a very large sstable to ensure compaction occurs on it.
   * sstablesplit -m 500 /path/to/massive/sstable-Data.db
+* CQL COPY
+  * Built in command to copy data in and out of Cassandra.
+  * https://docs.datastax.com/en/archived/cql/3.3/cql/cql_reference/cqlshCopy.html
+
+```sql
+COPY cycling.cyclist_name (id,firstname)
+FROM '../cyclist_firstname.csv'
+WITH HEADER = TRUE ;
+```
+
+```sql
+COPY cycling.cyclist_name (id,firstname)
+TO '../cyclist_firstname.csv'
+WITH HEADER = TRUE ;
+```
+* sstabledump
+  * This tool outputs the contents of the specified SSTable in the JSON format.
+  * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/tools/ToolsSSTabledump.html
+* sstableloader
+  * Bulk load external data into a cluster.
+  * Load existing SSTables into another cluster with a different number of nodes or replication strategy.
+  * Restore snapshots.
+  * https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/tools/toolsBulkloader.html
+* DSBulk
+  * The DataStax Bulk Loader dsbulk can be used for both loading data from a variety of sources and unloading data from DataStax Enterprise (DSE) or DataStax Distribution of Apache Cassandra™ (DDAC) databases for transfer, use, or storage of data.
+  * More performant than CQL COPY when you have TB of data.
+  * https://docs.datastax.com/en/dsbulk/doc/dsbulk/reference/dsbulkCmd.html
 * Backup
 * JVM
+  * cassandra-env.sh - jvm.options are in this shell script.
 * Garbage Collection
 * Heap Dump
 * Kernel Tuning
+  * ulimit -a - Allow Cassandra unfettered access to system resources.
+  * Turn off swap.
   * https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/config/configRecommendedSettings.html
   * https://tobert.github.io/pages/als-cassandra-21-tuning-guide.html
 * Hardware
+  * Persistent storage type. Avoid SAN / NAS / NFS.
+  * Memory.
+  * CPU.
+  * Number of nodes.
+  * Network bandwidth.
 * Cloud
 * Security
 
@@ -169,4 +206,3 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
 * SSTables are immutable.
 * Compaction is the progress of taking small SSTables and merges them into bigger ones.
 * Last writes wins - based on Timestamps.
-*
