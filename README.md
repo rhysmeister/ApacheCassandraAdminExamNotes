@@ -69,7 +69,7 @@ Apache Cassandra 3.x Administrator Associate Certification Exam Notes
   * Process used to remove stale data from existing sstables.
   * Compaction Strategies
     * SizeTiered Compaction - Default. Triggers when multiple sstables of a similar sire are present. Good for high writes.
-    * Leveled Compaction - Groups sstables into levels. Each level has a fixed size limit which is 10 times larger than the previous level. Good to read heavy use-cases.
+    * Leveled Compaction - Groups sstables into levels. Each level has a fixed size limit which is 10 times larger than the previous level. Good for read heavy use-cases.
     * TimeWindow Compaction - Create time windowed buckets of sstables that are compacted using the Size Tiered compaction strategy.
 * Advanced Performance
 
